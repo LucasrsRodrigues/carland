@@ -7,7 +7,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 // Date
-import { DateRange } from "react-date-range";
+import { DateRange, Range } from "react-date-range";
 import { format, addDays } from "date-fns";
 
 // date css
@@ -21,10 +21,10 @@ const locations = [
 ];
 
 export function DateSelection() {
-  const [date, setDate] = useState([
+  const [date, setDate] = useState<Range[]>([
     {
       startDate: new Date(),
-      endDate: null,
+      endDate: undefined,
       key: "selection",
     },
   ]);
@@ -39,14 +39,14 @@ export function DateSelection() {
           </div>
           <div className="flex items-center gap-x-3 xl:ml-6">
             <div className="text-[13px] font-medium text-secondary">
-              {format(date[0].startDate, "dd/MM/yyy")}
+              {format(date[0].startDate!, "dd/MM/yyy")}
             </div>
             <FaArrowRightLong className="text-accent text-[12px]" />
             <div className="text-[13px] font-medium text-secondary">
               {date[0].endDate ? (
                 <div>{format(date[0].endDate, "dd/MM/yyy")}</div>
               ) : (
-                <div>{format(date[0].startDate, "dd/MM/yyy")}</div>
+                <div>{format(date[0].startDate!, "dd/MM/yyy")}</div>
               )}
             </div>
           </div>
