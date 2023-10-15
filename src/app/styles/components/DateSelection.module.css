@@ -1,0 +1,25 @@
+.menuContainer {
+  @apply w-full h-full flex xl:flex-row;
+
+  .menuContent {
+    @apply relative flex-1;
+
+    .menuButton {
+      @layer dropdown-btn;
+      @apply w-full h-full flex flex-col justify-center;
+      @apply items-center xl:items-start xl:pl-8;
+
+      .wrapperIcon {
+        @apply flex flex-col items-center gap-y-2;
+        @apply xl:gap-x-2 xl:flex-row  xl:gap-y-0;
+      }
+    }
+
+    .menuItems {
+      @layer dropdown-menu;
+      @apply shadow-lg absolute -top-96  left-1/2 overflow-hidden;
+      @apply transform -translate-x-1/2 rounded-[10px];
+      @apply xl:top-[90px] xl:left-0 z-50 xl:-translate-x-0;
+    }
+  }
+}
